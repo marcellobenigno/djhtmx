@@ -1,0 +1,5 @@
+*html text eol=lf
+*css text eol=lf
+*js text eol=lf
+djhtmx/core/static/* linguist-vendored
+djhtmx/core/templates/* linguist-vendored

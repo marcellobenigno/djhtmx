@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block container %}
+    <div class="container-fluid">
+        <div class="row mt-2">
+            <div class="col-md-12">
+                <h2>Regiões e Estados do Brasil</h2>
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-md-6">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Região</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for region in regions %}
+                        <tr hx-get="{% url 'state:state_result' region.region|lower %}" hx-target="#states"
+                            hx-swap="innerHTML">
+                            <td>
+                                <a href="#">
+                                    {{ region.region }}
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Estados</th>
+                    </tr>
+                    </thead>
+                    <tbody id="states">
+                    <!-- novo conteúdo será inserido aqui. -->
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock container %}

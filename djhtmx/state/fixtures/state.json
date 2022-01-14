@@ -1,0 +1,236 @@
+[
+{
+  "model": "state.state",
+  "pk": 1,
+  "fields": {
+    "initials": "AC",
+    "name": "Acre",
+    "region": "Norte"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 2,
+  "fields": {
+    "initials": "AM",
+    "name": "Amazonas",
+    "region": "Norte"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 3,
+  "fields": {
+    "initials": "AP",
+    "name": "Amapá",
+    "region": "Norte"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 4,
+  "fields": {
+    "initials": "PA",
+    "name": "Pará",
+    "region": "Norte"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 5,
+  "fields": {
+    "initials": "RO",
+    "name": "Rondônia",
+    "region": "Norte"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 6,
+  "fields": {
+    "initials": "RR",
+    "name": "Roraima",
+    "region": "Norte"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 7,
+  "fields": {
+    "initials": "TO",
+    "name": "Tocantins",
+    "region": "Norte"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 8,
+  "fields": {
+    "initials": "AL",
+    "name": "Alagoas",
+    "region": "Nordeste"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 9,
+  "fields": {
+    "initials": "BA",
+    "name": "Bahia",
+    "region": "Nordeste"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 10,
+  "fields": {
+    "initials": "CE",
+    "name": "Ceará",
+    "region": "Nordeste"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 11,
+  "fields": {
+    "initials": "MA",
+    "name": "Maranhão",
+    "region": "Nordeste"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 12,
+  "fields": {
+    "initials": "PB",
+    "name": "Paraíba",
+    "region": "Nordeste"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 13,
+  "fields": {
+    "initials": "PE",
+    "name": "Pernambuco",
+    "region": "Nordeste"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 14,
+  "fields": {
+    "initials": "PI",
+    "name": "Piauí",
+    "region": "Nordeste"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 15,
+  "fields": {
+    "initials": "RN",
+    "name": "Rio Grande do Norte",
+    "region": "Nordeste"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 16,
+  "fields": {
+    "initials": "SE",
+    "name": "Sergipe",
+    "region": "Nordeste"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 17,
+  "fields": {
+    "initials": "PR",
+    "name": "Paraná",
+    "region": "Sul"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 18,
+  "fields": {
+    "initials": "RS",
+    "name": "Rio Grande do Sul",
+    "region": "Sul"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 19,
+  "fields": {
+    "initials": "SC",
+    "name": "Santa Catarina",
+    "region": "Sul"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 20,
+  "fields": {
+    "initials": "ES",
+    "name": "Espírito Santo",
+    "region": "Sudeste"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 21,
+  "fields": {
+    "initials": "MG",
+    "name": "Minas Gerais",
+    "region": "Sudeste"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 22,
+  "fields": {
+    "initials": "RJ",
+    "name": "Rio de Janeiro",
+    "region": "Sudeste"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 23,
+  "fields": {
+    "initials": "SP",
+    "name": "São Paulo",
+    "region": "Sudeste"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 24,
+  "fields": {
+    "initials": "GO",
+    "name": "Goiás",
+    "region": "Centro-Oeste"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 25,
+  "fields": {
+    "initials": "MS",
+    "name": "Mato Grosso do Sul",
+    "region": "Centro-Oeste"
+  }
+},
+{
+  "model": "state.state",
+  "pk": 26,
+  "fields": {
+    "initials": "MT",
+    "name": "Mato Grosso",
+    "region": "Centro-Oeste"
+  }
+}
+]

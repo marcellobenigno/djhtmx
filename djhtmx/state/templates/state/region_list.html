@@ -24,7 +24,7 @@
                                 hx-swap="innerHTML"
                         >
                             <td>
-                                <a href="#">
+                                <a href="#" class="region_link">
                                     {{ object.region }}
                                 </a>
                             </td>
@@ -57,3 +57,11 @@
 
     </div>
 {% endblock container %}
+
+{% block extra_js %}
+    <script>
+        $('.region_link').on("click", function () {
+            $('#municipalities').html('');
+        });
+    </script>
+{% endblock %}

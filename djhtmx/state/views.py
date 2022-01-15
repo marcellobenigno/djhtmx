@@ -16,7 +16,6 @@ class StateListView(generic.ListView):
 
 
 class MunicipalityHXListView(generic.ListView):
-    template_name = 'state/hx/municipality_hx.html'
 
     def get_queryset(self):
         return Municipality.objects.filter(
@@ -35,6 +34,9 @@ class StateHXListView(generic.ListView):
 
 region_list = RegionListView.as_view()
 state_list = StateListView.as_view()
-state_hx_list = StateHXListView.as_view()
 
+# hx
+state_hx_list = StateHXListView.as_view()
 municipality_hx_list = MunicipalityHXListView.as_view()
+municipality_hx_option_list = MunicipalityHXListView.as_view(template_name='state/hx/municipality_hx_option.html')
+municipality_hx_tr_list = MunicipalityHXListView.as_view(template_name='state/hx/municipality_hx_tr.html')

@@ -1,5 +1,13 @@
 {% for object in object_list %}
-    <tr>
-        <td>{{ object }}</td>
+    <tr
+            hx-get="{% url 'state:municipality_hx_tr_list' %}?state={{ object.pk|safe }}"
+            hx-target="#municipalities"
+            hx-swap="innerHTML"
+    >
+        <td>
+            <a href="#">
+                {{ object }}
+            </a>
+        </td>
     </tr>
 {% endfor %}

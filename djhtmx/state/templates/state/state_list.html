@@ -21,7 +21,7 @@
                         id="id_state"
                         name="state"
                         class="form-control"
-                        hx-get="{% url 'state:municipality_hx_list' %}"
+                        hx-get="{% url 'state:municipality_hx_option_list' %}"
                         hx-target="#id_municipality"
                 >
                     <option value="">-----</option>
@@ -65,7 +65,6 @@
                 $(this).closest('select').get(0).dispatchEvent(new Event('change'));
             });
         });
-
 
     </script>
 {% endblock %}

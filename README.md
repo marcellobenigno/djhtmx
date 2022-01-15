@@ -3,7 +3,6 @@
 ## Requisitos
 * Python 3.8.0
 * PostgreSQL >= 10
-* PostGIS >=2.5.1
 
 ## Configurações do Banco de Dados Espaciais
 

@@ -1,10 +1,12 @@
 # DJHTMX
 
+Estudos sobre a integração do Django com HTMX
+
 ## Requisitos
 * Python 3.8.0
 * PostgreSQL >= 10
 
-## Configurações do Banco de Dados Espaciais
+## Configurações do Banco de Dados
 
 É necessário criar um banco **PostgreSQL**, no terminal, faça:
 
@@ -18,8 +20,7 @@ createdb djhtmx
 * Crie um virtualenv com Python 3.8.0;
 * Ative o virtualenv;
 * Instale as dependências do ambiente de desenvolvimento;
-* Crie o banco de dados espacial como foi descrito acima.
-
+* Crie o banco de dados como foi descrito acima.
 
 ```
 git clone https://github.com/marcellobenigno/djhtmx.git
@@ -40,4 +41,11 @@ mv env-sample .env
 ```
 python manage.py makemigrations
 python manage.py migrate
+```
+
+* Carregue a base de estados e municípios:
+
+```
+python manage.py loaddata --app state state.json
+python manage.py loaddata --app state municipality.json
 ```

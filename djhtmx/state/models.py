@@ -12,6 +12,7 @@ class State(models.Model):
     class Meta:
         verbose_name = "Estado"
         verbose_name_plural = "Estados"
+        ordering = ("name",)
 
 
 class Municipality(models.Model):
@@ -26,3 +27,4 @@ class Municipality(models.Model):
     class Meta:
         verbose_name = "Município"
         verbose_name_plural = "Municípios"
+        ordering = ("name",)

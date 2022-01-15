@@ -1,48 +1,71 @@
 {% extends "base.html" %}
 
+{% block extra_css %}
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@ttskch/select2-bootstrap4-theme@x.x.x/dist/select2-bootstrap4.min.css">
+{% endblock %}
+
 {% block container %}
     <div class="container-fluid">
         <div class="row mt-2">
             <div class="col-md-12">
-                <h2>Regiões e Estados do Brasil</h2>
+                <h2>Estados e Municípios do Brasil</h2>
+                <hr>
             </div>
         </div>
 
         <div class="row mt-2">
             <div class="col-md-6">
-                <table class="table table-hover">
-                    <thead>
-                    <tr>
-                        <th>Região</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for region in regions %}
-                        <tr hx-get="{% url 'state:state_result' region.region|lower %}" hx-target="#states"
-                            hx-swap="innerHTML">
-                            <td>
-                                <a href="#">
-                                    {{ region.region }}
-                                </a>
-                            </td>
-                        </tr>
+                <select
+                        id="id_state"
+                        name="state"
+                        class="form-control"
+                        hx-get="{% url 'state:municipality_hx_list' %}"
+                        hx-target="#id_municipality"
+                >
+                    <option value="">-----</option>
+                    {% for object in object_list %}
+                        <option value="{{ object.pk|safe }}">{{ object.name }}</option>
                     {% endfor %}
-                    </tbody>
-                </table>
+                </select>
             </div>
             <div class="col-md-6">
-                <table class="table table-hover">
-                    <thead>
-                    <tr>
-                        <th>Estados</th>
-                    </tr>
-                    </thead>
-                    <tbody id="states">
-                    <!-- novo conteúdo será inserido aqui. -->
-
-                    </tbody>
-                </table>
+                <select
+                        id="id_municipality"
+                        class="form-control"
+                >
+                    <option value="">-----</option>
+                    <!-- A lista de Municípios será inserida aqui. -->
+                </select>
             </div>
         </div>
     </div>
 {% endblock container %}
+
+{% block extra_js %}
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/i18n/pt-BR.min.js"></script>
+    <script>
+        $('#id_state').select2({
+            theme: 'bootstrap4',
+            placeholder: "Estados",
+            "language": "pt-BR",
+        });
+
+        $('#id_municipality').select2({
+            theme: 'bootstrap4',
+            placeholder: "Municípios",
+            "language": "pt-BR",
+        });
+
+        // https://stackoverflow.com/questions/65658432/select2-change-event-does-not-trigger-htmx
+        window.addEventListener("DOMContentLoaded", (e) => {
+            $('select').on('select2:select', function (e) {
+                $(this).closest('select').get(0).dispatchEvent(new Event('change'));
+            });
+        });
+
+
+    </script>
+{% endblock %}

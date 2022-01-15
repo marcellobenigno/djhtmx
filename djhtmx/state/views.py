@@ -1,21 +1,40 @@
-from django.shortcuts import render
+from django.views import generic
 
-from .models import State
+from .models import State, Municipality
 
 
-def state_list(request):
+class RegionListView(generic.ListView):
+    template_name = 'state/region_list.html'
+
+    def get_queryset(self):
+        return State.objects.values('region').distinct().order_by('region')
+
+
+class StateListView(generic.ListView):
     template_name = 'state/state_list.html'
-    regions = State.objects.values('region').distinct().order_by('region')
-    context = {
-        'regions': regions
-    }
-    return render(request, template_name, context)
+    model = State
 
 
-def state_result(request, region):
+class MunicipalityHXListView(generic.ListView):
+    template_name = 'state/hx/municipality_hx.html'
+
+    def get_queryset(self):
+        return Municipality.objects.filter(
+            state__pk=self.request.GET.get('state')
+        )
+
+
+class StateHXListView(generic.ListView):
     template_name = 'state/hx/state_hx.html'
-    ufs = State.objects.filter(region__icontains=region).order_by('name')
-    context = {
-        'ufs': ufs
-    }
-    return render(request, template_name, context)
+
+    def get_queryset(self):
+        return State.objects.filter(
+            region__icontains=self.kwargs['region']
+        )
+
+
+region_list = RegionListView.as_view()
+state_list = StateListView.as_view()
+state_hx_list = StateHXListView.as_view()
+
+municipality_hx_list = MunicipalityHXListView.as_view()

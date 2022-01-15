@@ -22,6 +22,13 @@ class MunicipalityHXListView(generic.ListView):
             state__pk=self.request.GET.get('state')
         )
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['state'] = State.objects.get(
+            pk=self.request.GET.get('state')
+        )
+        return context
+
 
 class StateHXListView(generic.ListView):
     template_name = 'state/hx/state_hx.html'
@@ -39,4 +46,4 @@ state_list = StateListView.as_view()
 state_hx_list = StateHXListView.as_view()
 municipality_hx_list = MunicipalityHXListView.as_view()
 municipality_hx_option_list = MunicipalityHXListView.as_view(template_name='state/hx/municipality_hx_option.html')
-municipality_hx_tr_list = MunicipalityHXListView.as_view(template_name='state/hx/municipality_hx_tr.html')
+municipality_hx_tr_list = MunicipalityHXListView.as_view(template_name='state/hx/municipality_hx.html')

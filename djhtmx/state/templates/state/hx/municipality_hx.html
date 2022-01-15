@@ -1,0 +1,20 @@
+<hr>
+<h3>{{ state }} - Relação de Municípios</h3>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Código IBGE</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for object in object_list %}
+        <tr>
+            <td>{{ object }}</td>
+            <td>{{ object.cod_ibge_m|slugify }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+

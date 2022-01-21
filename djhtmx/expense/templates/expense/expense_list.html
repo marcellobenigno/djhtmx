@@ -12,6 +12,11 @@
         </div>
         <div class="row">
             <div class="col-md-12">
+
+                <div class="alert alert-success" id="msg-success" role="alert" style="display:none;">
+                    Item Inserido com Sucesso!
+                </div>
+
                 <form
                         id="expense-form"
                         class="form-inline mb-2"
@@ -70,6 +75,7 @@
             if (evt.target.id == 'expenseTbody') {
                 document.getElementById('id_description').value = ''
                 document.getElementById('id_value').value = ''
+                $('#msg-success').fadeIn(1000).show(2000).fadeOut(1000);
             }
         });
     </script>

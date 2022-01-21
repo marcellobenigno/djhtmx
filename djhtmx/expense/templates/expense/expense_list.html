@@ -72,9 +72,9 @@
         });
 
         htmx.on("htmx:afterSwap", function (evt) {
-            if (evt.target.id === 'expenseTbody') {
-                $('#id_description').value = ''
-                $('#id_value').value = ''
+            if (evt.target.id == 'expenseTbody') {
+                $('#id_description').val('');
+                $('#id_value').val('');
                 $('#msg-success').fadeIn(1000).show(2000).fadeOut(1000);
             }
         });

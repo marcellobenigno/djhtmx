@@ -6,6 +6,7 @@ from django.urls import path, include
 urlpatterns = [
     path('', include('djhtmx.core.urls')),
     path('estados/', include('djhtmx.state.urls')),
+    path('despesas/', include('djhtmx.expense.urls')),
     path('admin/', admin.site.urls),
 ]
 

@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     # Apps
     'djhtmx.core.apps.CoreConfig',
     'djhtmx.state.apps.StateConfig',
+    'djhtmx.expense.apps.ExpenseConfig',
 ]
 
 MIDDLEWARE = [

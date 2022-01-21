@@ -30,6 +30,14 @@
                         Estados
                     </a>
                 </li>
+
+
+                <li class="nav-item {% if url_name == 'expense_list' %}active{% endif %}">
+                    <a class="nav-link" href="{% url 'expense:expense_list' %}">
+                        <i class="fa fa-money-check"></i>
+                        Despesas
+                    </a>
+                </li>
             </ul>
 
         </div>

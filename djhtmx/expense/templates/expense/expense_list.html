@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% load bootstrap4 %}
+
+{% block container %}
+    <div class="container-fluid">
+        <div class="row mt-2">
+            <div class="col-md-12">
+                <h2>Despesas</h2>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <form
+                        id="expense-form"
+                        class="form-inline mb-2"
+                        hx-post="{% url 'expense:expense_create' %}"
+                        hx-target="#expenseTbody"
+                        hx-indicator=".htmx-indicator"
+                        hx-swap="afterbegin"
+                >
+                    {% csrf_token %}
+                    <div class="form-group p-2">
+                        {% bootstrap_field form.description show_label=False %}
+                        {% bootstrap_field form.value show_label=False %}
+                    </div>
+                    <div class="form-group">
+                        <button
+                                id="id_submit"
+                                type="submit"
+                                class="btn btn-primary ml-2"
+                        >Adicionar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th class="text-center">Pago</th>
+                        <th class="text-center">Ações</th>
+                    </tr>
+                    </thead>
+                    <tbody id="expenseTbody">
+                    {% for object in object_list %}
+                        {% include 'expense/hx/expense_hx.html' %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock container %}
+
+{% block extra_js %}
+    <script>
+        document.body.addEventListener('htmx:configRequest', (event) => {
+            event.detail.headers['X-CSRFToken'] = '{{ csrf_token }}';
+        });
+
+        htmx.on("htmx:afterSwap", function (evt) {
+            if (evt.target.id == 'expenseTbody') {
+                document.getElementById('id_description').value = ''
+                document.getElementById('id_value').value = ''
+            }
+        });
+    </script>
+
+    </script>
+{% endblock %}

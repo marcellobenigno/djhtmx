@@ -1,0 +1,27 @@
+{% load bootstrap4 %}
+
+<tr id="trExpense">
+    <td></td>
+        <td>{% bootstrap_field form.description show_label=False %}</td>
+        <td>{% bootstrap_field form.value show_label=False %}</td>
+    <td></td>
+    <td class="text-center">
+        <button
+                type="submit"
+                class="btn btn-success"
+                hx-post="{% url 'expense:expense_update' object.pk %}"
+                hx-target="#trExpense"
+                hx-swap="outerHTML"
+        >
+            <i class="fa fa-check-circle"></i>
+        </button>
+        <button
+                class="btn btn-danger"
+                hx-get="{% url 'expense:expense_update' object.pk %}"
+                hx-target="#trExpense"
+                hx-swap="outerHTML"
+        >
+            <i class="fa fa-times-circle"></i>
+        </button>
+    </td>
+</tr>

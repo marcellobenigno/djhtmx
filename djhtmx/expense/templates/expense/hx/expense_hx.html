@@ -25,14 +25,17 @@
     {% endif %}
   </td>
   <td class="text-center">
-    <span hx-get="{ url 'expense:expense_detail' object.pk %}">
-      <i class="fa fa-pencil-square-o link span-is-link"></i>
+    <span
+            hx-get="{% url 'expense:expense_detail' object.pk %}"
+    >
+      <i class="fa fa-edit span-is-link"></i>
+
     </span>
     <span
-      hx-delete="{ url 'expense:expense_delete' object.pk %}"
-      hx-confirm="Deseja mesmo deletar?"
-      hx-target="closest tr"
-      hx-swap="outerHTML swap:500ms"
+            hx-delete="{ url 'expense:expense_delete' object.pk %}"
+            hx-confirm="Deseja mesmo deletar?"
+            hx-target="closest tr"
+            hx-swap="outerHTML swap:500ms"
     >
       <i class="fa fa-trash no span-is-link pl-2 text-danger"></i>
     </span>
